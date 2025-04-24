@@ -1,19 +1,28 @@
 ﻿namespace Lab05Lib
 {
-    public class Airplane
+    public class Town
     {
-        public string Model { get; set; }
-        public string Manufacturer { get; set; }
-        public int Year { get; set; }
-        public int Capacity { get; set; }
-        public double FuelCapacity { get; set; }
-        public double FuelConsumptionPer100Km { get; set; }
-        public bool HasAutopilot { get; set; }
-        public bool IsMilitary { get; set; }
+        public string Name;
+        public string Country;
+        public string Region;
+        public int Population;
+        public double YearIncome;
+        public double Square;
+        public bool HasPort;
+        public bool HasAirport;
 
-        public double CalculateMaxDistance()
+        public double yearIncomePerInhabitant
         {
-            return FuelConsumptionPer100Km > 0 ? (FuelCapacity / FuelConsumptionPer100Km) * 100 : 0;
+            get
+            {
+                return GetYearIncomePerInhabitant();
+            }
+        }
+
+        public double GetYearIncomePerInhabitant()
+        {
+            return YearIncome / Population;
         }
     }
+
 }
